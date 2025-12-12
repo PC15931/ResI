@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Analysen – ResI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Hauptmenü -->
+  <header class="page-header">
+    <div class="logo">ResI</div>
+    <nav id="nav">
+      <ul class="nav-left">
+        <li><a href="dashboard.html">🏠 Home</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="daten.html">📤 Datenmanagement</a></li>
+        <li><a href="analysen.html">📊 Analysen</a></li>
+        <li><a href="benutzer.html">👤 Benutzerbereich</a></li>
+        <li><a href="info.html">ℹ️ Info & Support</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- Sub-Navigation für Kategorie -->
+  <nav class="sub-nav">
+    <ul>
+      <li><a href="risikoanalyse.html">⚠️ Risikoanalyse</a></li>
+      <li><a href="reports.html">📑 Reports</a></li>
+      <li><a href="weather.html">🌍 Wetterdaten</a></li>
+    </ul>
+  </nav>
+
+  <!-- Inhalt -->
+  <main class="page-content">
+    <section class="content-box">
+      <h2>Analysen</h2>
+      <p>Wähle eine Unterseite aus der Sub-Navigation oben.</p>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

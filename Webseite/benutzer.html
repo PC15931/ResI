@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Benutzerbereich - Verwalten Sie Ihr Profil und Ihre Daten">
+  <title>Benutzerbereich – ResI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+  <!-- Navigation -->
+  <header class="page-header">
+    <div class="logo">ResI</div>
+    <nav id="nav" aria-label="Hauptnavigation">
+      <ul class="nav-left">
+        <li><a href="dashboard.html">🏠 Home</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="daten.html">📤 Datenmanagement</a></li>
+        <li><a href="risikoanalyse.html">📊 Analysen</a></li>
+        <li><a href="benutzer.html" aria-current="page">👤 Benutzerbereich</a></li>
+        <li><a href="info.html">ℹ️ Info & Support</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-menu" aria-controls="nav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Sub-Navigation -->
+  <nav class="sub-nav" aria-label="Untermenü Benutzer">
+    <ul>
+      <li><a href="benutzer.html" aria-current="page">👤 Profil</a></li>
+      <li><a href="benutzer_einstellungen.html">⚙️ Einstellungen</a></li>
+      <li><a href="benutzer_daten.html">📑 Meine Daten</a></li>
+    </ul>
+  </nav>
+
+  <!-- Inhalt -->
+  <main id="main" class="page-content">
+    <section class="content-box">
+      <div class="page-title-section">
+        <h1>Mein Profil</h1>
+        <p class="lead">Verwalten Sie hier Ihr Profil, Ihre Einstellungen und Ihre persönlichen Daten.</p>
+      </div>
+
+      <!-- Profil-Header -->
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <div class="avatar-circle">MM</div>
+          <button class="btn btn-secondary btn-sm">Foto ändern</button>
+        </div>
+        <div class="profile-info">
+          <h2>Max Mustermann</h2>
+          <p class="profile-role">Landwirt • Premium-Mitglied</p>
+          <p class="profile-member-since">Mitglied seit 01. Januar 2024</p>
+        </div>
+        <div class="profile-actions">
+          <button class="btn btn-primary" onclick="editProfile()">✏️ Profil bearbeiten</button>
+        </div>
+      </div>
+
+      <!-- Profilinformationen -->
+      <div class="chart">
+        <div class="chart-header">
+          <h2>Persönliche Informationen</h2>
+          <button class="btn btn-secondary btn-sm" onclick="editProfile()">✏️ Bearbeiten</button>
+        </div>
+        
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Name:</span>
+            <span class="info-value">Max Mustermann</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">E-Mail:</span>
+            <span class="info-value">max.mustermann@example.com</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Telefon:</span>
+            <span class="info-value">+49 123 456789</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Betrieb:</span>
+            <span class="info-value">Musterhof GmbH</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Adresse:</span>
+            <span class="info-value">Musterstraße 123, 12345 Musterstadt</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Fläche:</span>
+            <span class="info-value">150 Hektar</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Rolle:</span>
+            <span class="info-value"><span class="badge">Landwirt</span></span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Account-Typ:</span>
+            <span class="info-value"><span class="badge success">Premium</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistiken -->
+      <div class="chart">
+        <h2>Meine Aktivitäten</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">📁</div>
+            <div class="stat-info">
+              <div class="stat-value">12</div>
+              <div class="stat-label">Hochgeladene Dateien</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-info">
+              <div class="stat-value">47</div>
+              <div class="stat-label">Durchgeführte Analysen</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📑</div>
+            <div class="stat-info">
+              <div class="stat-value">23</div>
+              <div class="stat-label">Erstellte Reports</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⏱️</div>
+            <div class="stat-info">
+              <div class="stat-value">89</div>
+              <div class="stat-label">Tage aktiv</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Settings -->
+      <div class="chart">
+        <h2>Schnelleinstellungen</h2>
+        <div class="quick-settings">
+          <label class="setting-toggle">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+            <span class="setting-label">E-Mail-Benachrichtigungen</span>
+          </label>
+          <label class="setting-toggle">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+            <span class="setting-label">Push-Benachrichtigungen</span>
+          </label>
+          <label class="setting-toggle">
+            <input type="checkbox">
+            <span class="toggle-slider"></span>
+            <span class="setting-label">SMS-Benachrichtigungen</span>
+          </label>
+          <label class="setting-toggle">
+            <input type="checkbox" checked>
+            <span class="toggle-slider"></span>
+            <span class="setting-label">Automatische Datensicherung</span>
+          </label>
+        </div>
+        <a href="benutzer_einstellungen.html" class="btn btn-secondary">⚙️ Alle Einstellungen</a>
+      </div>
+
+      <!-- Dateien-Übersicht -->
+      <div class="chart">
+        <div class="chart-header">
+          <h2>Meine Dateien</h2>
+          <a href="benutzer_daten.html" class="btn btn-secondary btn-sm">Alle anzeigen</a>
+        </div>
+        <p>Sie haben aktuell <strong>12 Dateien</strong> hochgeladen.</p>
+        <div class="file-stats">
+          <div class="file-stat-item success">
+            <span class="file-stat-icon">✅</span>
+            <span class="file-stat-label">9 erfolgreich verarbeitet</span>
+          </div>
+          <div class="file-stat-item warning">
+            <span class="file-stat-icon">⚠️</span>
+            <span class="file-stat-label">2 teilweise verarbeitet</span>
+          </div>
+          <div class="file-stat-item error">
+            <span class="file-stat-icon">❌</span>
+            <span class="file-stat-label">1 mit Fehler</span>
+          </div>
+        </div>
+        <div class="button-group mt-md">
+          <button class="btn btn-primary" onclick="window.location.href='daten.html'">📤 Neue Datei hochladen</button>
+          <button class="btn btn-secondary" onclick="window.location.href='benutzer_daten.html'">📑 Dateiliste anzeigen</button>
+          <button class="btn btn-secondary" onclick="window.location.href='daten_export.html'">⬇️ Daten exportieren</button>
+        </div>
+      </div>
+
+      <!-- Account-Sicherheit -->
+      <div class="chart">
+        <h2>Sicherheit & Datenschutz</h2>
+        <div class="security-items">
+          <div class="security-item">
+            <div class="security-icon success">🔒</div>
+            <div class="security-content">
+              <h3>Zwei-Faktor-Authentifizierung</h3>
+              <p>Aktiviert seit 15.03.2024</p>
+            </div>
+            <button class="btn btn-secondary btn-sm">Verwalten</button>
+          </div>
+          <div class="security-item">
+            <div class="security-icon success">✅</div>
+            <div class="security-content">
+              <h3>Passwort</h3>
+              <p>Zuletzt geändert vor 45 Tagen</p>
+            </div>
+            <button class="btn btn-secondary btn-sm">Ändern</button>
+          </div>
+          <div class="security-item">
+            <div class="security-icon">📱</div>
+            <div class="security-content">
+              <h3>Angemeldete Geräte</h3>
+              <p>3 aktive Sitzungen</p>
+            </div>
+            <button class="btn btn-secondary btn-sm">Verwalten</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abo & Abrechnung -->
+      <div class="chart">
+        <h2>Abonnement & Abrechnung</h2>
+        <div class="subscription-card premium">
+          <div class="subscription-badge">⭐ Premium</div>
+          <div class="subscription-details">
+            <h3>Premium-Plan</h3>
+            <p class="subscription-price">49,99 € / Monat</p>
+            <p class="subscription-renewal">Nächste Abrechnung: 01.01.2026</p>
+          </div>
+          <div class="subscription-features">
+            <div class="feature-item">✓ Unbegrenzte Uploads</div>
+            <div class="feature-item">✓ Erweiterte Analysen</div>
+            <div class="feature-item">✓ Prioritäts-Support</div>
+            <div class="feature-item">✓ API-Zugriff</div>
+          </div>
+          <div class="button-group">
+            <button class="btn btn-secondary">Plan ändern</button>
+            <button class="btn btn-secondary">Rechnungen anzeigen</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danger Zone -->
+      <div class="chart danger-zone">
+        <h2>Account-Verwaltung</h2>
+        <div class="danger-actions">
+          <div class="danger-item">
+            <div class="danger-content">
+              <h3>Account exportieren</h3>
+              <p>Laden Sie eine Kopie Ihrer Daten herunter</p>
+            </div>
+            <button class="btn btn-secondary">📥 Daten exportieren</button>
+          </div>
+          <div class="danger-item">
+            <div class="danger-content">
+              <h3>Account deaktivieren</h3>
+              <p>Vorübergehende Deaktivierung Ihres Accounts</p>
+            </div>
+            <button class="btn btn-secondary">⏸️ Deaktivieren</button>
+          </div>
+          <div class="danger-item">
+            <div class="danger-content">
+              <h3>Account löschen</h3>
+              <p>Permanent und unwiderruflich</p>
+            </div>
+            <button class="btn btn-danger" onclick="confirmDelete()">🗑️ Account löschen</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      const trigger = document.querySelector('.mobile-menu');
+      const isOpen = nav.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function editProfile() {
+      alert('Profil-Editor wird geöffnet (Simulation)');
+    }
+
+    function confirmDelete() {
+      if (confirm('Sind Sie sicher, dass Sie Ihren Account löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden!')) {
+        alert('Account-Löschung würde hier initiiert werden.');
+      }
+    }
+  </script>
+</body>
+</html>

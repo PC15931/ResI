@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meine Daten - Übersicht Ihrer hochgeladenen Dateien">
+  <title>Meine Daten – ResI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+  <!-- Navigation -->
+  <header class="page-header">
+    <div class="logo">ResI</div>
+    <nav id="nav" aria-label="Hauptnavigation">
+      <ul class="nav-left">
+        <li><a href="dashboard.html">🏠 Home</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="daten.html">📤 Datenmanagement</a></li>
+        <li><a href="risikoanalyse.html">📊 Analysen</a></li>
+        <li><a href="benutzer.html">👤 Benutzerbereich</a></li>
+        <li><a href="info.html">ℹ️ Info & Support</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-menu" aria-controls="nav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Sub-Navigation -->
+  <nav class="sub-nav" aria-label="Untermenü Benutzer">
+    <ul>
+      <li><a href="benutzer.html">👤 Profil</a></li>
+      <li><a href="benutzer_einstellungen.html">⚙️ Einstellungen</a></li>
+      <li><a href="benutzer_daten.html" aria-current="page">📑 Meine Daten</a></li>
+    </ul>
+  </nav>
+
+  <!-- Inhalt -->
+  <main id="main" class="page-content">
+    <section class="content-box">
+      <div class="page-title-section">
+        <h1>Meine Daten</h1>
+        <p class="lead">Übersicht über Ihre hochgeladenen Dateien und gespeicherten Informationen.</p>
+      </div>
+
+      <!-- Statistik-Übersicht -->
+      <div class="chart">
+        <h2>Statistik</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">📁</div>
+            <div class="stat-info">
+              <div class="stat-value">12</div>
+              <div class="stat-label">Hochgeladene Dateien</div>
+            </div>
+          </div>
+          <div class="stat-card success">
+            <div class="stat-icon">✅</div>
+            <div class="stat-info">
+              <div class="stat-value">9</div>
+              <div class="stat-label">Erfolgreich verarbeitet</div>
+            </div>
+          </div>
+          <div class="stat-card warning">
+            <div class="stat-icon">⚠️</div>
+            <div class="stat-info">
+              <div class="stat-value">2</div>
+              <div class="stat-label">Teilweise verarbeitet</div>
+            </div>
+          </div>
+          <div class="stat-card error">
+            <div class="stat-icon">❌</div>
+            <div class="stat-info">
+              <div class="stat-value">1</div>
+              <div class="stat-label">Mit Fehler</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="storage-info">
+          <div class="storage-header">
+            <span class="storage-label">Speicherplatz:</span>
+            <span class="storage-usage">4.2 GB von 10 GB verwendet</span>
+          </div>
+          <div class="storage-bar">
+            <div class="storage-fill" style="width: 42%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter & Aktionen -->
+      <div class="chart">
+        <div class="data-actions">
+          <button class="btn btn-primary" onclick="window.location.href='daten.html'">
+            📤 Neue Datei hochladen
+          </button>
+          <button class="btn btn-secondary" onclick="window.location.href='daten_export.html'">
+            ⬇️ Alle Daten exportieren
+          </button>
+          <button class="btn btn-secondary" onclick="deleteAllData()">
+            🗑️ Alle Daten löschen
+          </button>
+        </div>
+      </div>
+
+      <!-- Letzte Uploads -->
+      <div class="chart">
+        <h2>Letzte Uploads</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Dateiname</th>
+              <th>Typ</th>
+              <th>Datum</th>
+              <th>Größe</th>
+              <th>Status</th>
+              <th>Aktionen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>bodenproben_feldA.csv</strong></td>
+              <td><span class="badge">CSV</span></td>
+              <td>11.12.2025</td>
+              <td>120 KB</td>
+              <td><span class="status-badge success">✓ Erfolgreich</span></td>
+              <td>
+                <div class="button-group">
+                  <button class="btn-icon" title="Details" onclick="showFileDetails('bodenproben_feldA.csv')">🔍</button>
+                  <button class="btn-icon" title="Herunterladen" onclick="downloadFile('bodenproben_feldA.csv')">⬇️</button>
+                  <button class="btn-icon danger" title="Löschen" onclick="deleteFile('bodenproben_feldA.csv')">🗑</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>wetterstation_sued.xlsx</strong></td>
+              <td><span class="badge">XLSX</span></td>
+              <td>10.12.2025</td>
+              <td>450 KB</td>
+              <td><span class="status-badge warning">⚠ Teilweise verarbeitet</span></td>
+              <td>
+                <div class="button-group">
+                  <button class="btn-icon" title="Details" onclick="showFileDetails('wetterstation_sued.xlsx')">🔍</button>
+                  <button class="btn-icon" title="Herunterladen" onclick="downloadFile('wetterstation_sued.xlsx')">⬇️</button>
+                  <button class="btn-icon danger" title="Löschen" onclick="deleteFile('wetterstation_sued.xlsx')">🗑</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>marktpreise_getreide.json</strong></td>
+              <td><span class="badge">JSON</span></td>
+              <td>09.12.2025</td>
+              <td>85 KB</td>
+              <td><span class="status-badge error">✗ Fehler</span></td>
+              <td>
+                <div class="button-group">
+                  <button class="btn-icon" title="Details" onclick="showFileDetails('marktpreise_getreide.json')">🔍</button>
+                  <button class="btn-icon" title="Herunterladen" onclick="downloadFile('marktpreise_getreide.json')">⬇️</button>
+                  <button class="btn-icon danger" title="Löschen" onclick="deleteFile('marktpreise_getreide.json')">🗑</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>sensor_feld1.csv</strong></td>
+              <td><span class="badge">CSV</span></td>
+              <td>08.12.2025</td>
+              <td>230 KB</td>
+              <td><span class="status-badge success">✓ Erfolgreich</span></td>
+              <td>
+                <div class="button-group">
+                  <button class="btn-icon" title="Details" onclick="showFileDetails('sensor_feld1.csv')">🔍</button>
+                  <button class="btn-icon" title="Herunterladen" onclick="downloadFile('sensor_feld1.csv')">⬇️</button>
+                  <button class="btn-icon danger" title="Löschen" onclick="deleteFile('sensor_feld1.csv')">🗑</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>regenmengen.geojson</strong></td>
+              <td><span class="badge">GeoJSON</span></td>
+              <td>07.12.2025</td>
+              <td>680 KB</td>
+              <td><span class="status-badge success">✓ Erfolgreich</span></td>
+              <td>
+                <div class="button-group">
+                  <button class="btn-icon" title="Details" onclick="showFileDetails('regenmengen.geojson')">🔍</button>
+                  <button class="btn-icon" title="Herunterladen" onclick="downloadFile('regenmengen.geojson')">⬇️</button>
+                  <button class="btn-icon danger" title="Löschen" onclick="deleteFile('regenmengen.geojson')">🗑</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="daten_liste.html" class="btn btn-secondary">📑 Alle Dateien anzeigen</a>
+      </div>
+
+      <!-- Datennutzung nach Kategorie -->
+      <div class="chart">
+        <h2>Datennutzung nach Kategorie</h2>
+        <div class="category-usage">
+          <div class="category-item">
+            <div class="category-header">
+              <span class="category-icon">🌱</span>
+              <span class="category-name">Bodenproben</span>
+            </div>
+            <div class="category-bar">
+              <div class="category-fill" style="width: 45%; background: #4caf50;"></div>
+            </div>
+            <div class="category-stats">
+              <span>1.9 GB</span>
+              <span>5 Dateien</span>
+            </div>
+          </div>
+          
+          <div class="category-item">
+            <div class="category-header">
+              <span class="category-icon">🌤️</span>
+              <span class="category-name">Wetterdaten</span>
+            </div>
+            <div class="category-bar">
+              <div class="category-fill" style="width: 30%; background: #2196f3;"></div>
+            </div>
+            <div class="category-stats">
+              <span>1.3 GB</span>
+              <span>3 Dateien</span>
+            </div>
+          </div>
+          
+          <div class="category-item">
+            <div class="category-header">
+              <span class="category-icon">💰</span>
+              <span class="category-name">Marktdaten</span>
+            </div>
+            <div class="category-bar">
+              <div class="category-fill" style="width: 15%; background: #ff9800;"></div>
+            </div>
+            <div class="category-stats">
+              <span>640 MB</span>
+              <span>2 Dateien</span>
+            </div>
+          </div>
+          
+          <div class="category-item">
+            <div class="category-header">
+              <span class="category-icon">📡</span>
+              <span class="category-name">Sensordaten</span>
+            </div>
+            <div class="category-bar">
+              <div class="category-fill" style="width: 10%; background: #9c27b0;"></div>
+            </div>
+            <div class="category-stats">
+              <span>350 MB</span>
+              <span>2 Dateien</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backup & Export -->
+      <div class="chart">
+        <h2>Backup & Export</h2>
+        <div class="backup-section">
+          <div class="backup-item">
+            <div class="backup-icon">💾</div>
+            <div class="backup-content">
+              <h3>Letztes Backup</h3>
+              <p>10.12.2025, 03:00 Uhr</p>
+              <p class="backup-size">Größe: 4.1 GB</p>
+            </div>
+            <button class="btn btn-secondary" onclick="restoreBackup()">↩️ Wiederherstellen</button>
+          </div>
+          
+          <div class="backup-item">
+            <div class="backup-icon">📥</div>
+            <div class="backup-content">
+              <h3>Vollständiger Export</h3>
+              <p>Laden Sie alle Ihre Daten herunter</p>
+            </div>
+            <button class="btn btn-primary" onclick="window.location.href='daten_export.html'">
+              ⬇️ Export starten
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Datenschutz-Informationen -->
+      <div class="info-box">
+        <span class="info-icon">🔒</span>
+        <div>
+          <strong>Datenschutz & Sicherheit:</strong> Alle Ihre Daten werden verschlüsselt gespeichert 
+          und DSGVO-konform verarbeitet. Automatische Backups erfolgen täglich. 
+          Sie können jederzeit eine Kopie Ihrer Daten anfordern oder Ihren Account löschen.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      const trigger = document.querySelector('.mobile-menu');
+      const isOpen = nav.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function showFileDetails(filename) {
+      alert(`Details für "${filename}" werden angezeigt (Simulation)`);
+    }
+
+    function downloadFile(filename) {
+      alert(`Download für "${filename}" wird gestartet (Simulation)`);
+    }
+
+    function deleteFile(filename) {
+      if (confirm(`Möchten Sie die Datei "${filename}" wirklich löschen?`)) {
+        alert(`Datei "${filename}" wurde gelöscht (Simulation)`);
+      }
+    }
+
+    function deleteAllData() {
+      if (confirm('Möchten Sie wirklich ALLE Ihre Daten löschen? Diese Aktion kann nicht rückgängig gemacht werden!')) {
+        if (confirm('Sind Sie sicher? Dies löscht alle hochgeladenen Dateien permanent!')) {
+          alert('Alle Daten würden gelöscht werden (Simulation)');
+        }
+      }
+    }
+
+    function restoreBackup() {
+      if (confirm('Möchten Sie das letzte Backup wiederherstellen? Aktuelle Daten werden überschrieben.')) {
+        alert('Backup wird wiederhergestellt (Simulation)');
+      }
+    }
+  </script>
+</body>
+</html>

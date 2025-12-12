@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FAQ - Häufig gestellte Fragen zu ResI">
+  <title>FAQ – ResI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+  <!-- Navigation -->
+  <header class="page-header">
+    <div class="logo">ResI</div>
+    <nav id="nav" aria-label="Hauptnavigation">
+      <ul class="nav-left">
+        <li><a href="dashboard.html">🏠 Home</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="daten.html">📤 Datenmanagement</a></li>
+        <li><a href="risikoanalyse.html">📊 Analysen</a></li>
+        <li><a href="benutzer.html">👤 Benutzerbereich</a></li>
+        <li><a href="info.html">ℹ️ Info & Support</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-menu" aria-controls="nav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Sub-Navigation -->
+  <nav class="sub-nav" aria-label="Untermenü Info">
+    <ul>
+      <li><a href="info.html">ℹ️ Hilfe</a></li>
+      <li><a href="faq.html" aria-current="page">❓ FAQ</a></li>
+      <li><a href="kontakt.html">📞 Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- Inhalt -->
+  <main id="main" class="page-content">
+    <section class="content-box">
+      <div class="page-title-section">
+        <h1>Häufig gestellte Fragen (FAQ)</h1>
+        <p class="lead">Hier finden Sie Antworten auf die wichtigsten Fragen zur Nutzung der Plattform.</p>
+      </div>
+
+      <!-- Suchfeld -->
+      <div class="chart">
+        <div class="faq-search">
+          <input type="text" id="faqSearch" placeholder="🔍 Fragen durchsuchen..." onkeyup="searchFAQ()">
+        </div>
+      </div>
+
+      <!-- Kategorie-Filter -->
+      <div class="chart">
+        <div class="category-filters">
+          <button class="filter-btn active" onclick="filterCategory('all')">Alle</button>
+          <button class="filter-btn" onclick="filterCategory('allgemein')">Allgemein</button>
+          <button class="filter-btn" onclick="filterCategory('datenmanagement')">Datenmanagement</button>
+          <button class="filter-btn" onclick="filterCategory('analysen')">Analysen</button>
+          <button class="filter-btn" onclick="filterCategory('account')">Account</button>
+          <button class="filter-btn" onclick="filterCategory('support')">Support</button>
+        </div>
+      </div>
+
+      <!-- Allgemein -->
+      <div class="chart faq-category" data-category="allgemein">
+        <h2>Allgemeine Fragen</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Was ist ResI? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              ResI (Risk Evaluation & Scoring Intelligence) ist eine KI-basierte Plattform zur Risikoanalyse 
+              und Datenverwaltung für die Landwirtschaft. Die Software sammelt, analysiert und bewertet 
+              agrarrelevante Daten, um Risiken frühzeitig zu erkennen und optimale Entscheidungen für 
+              landwirtschaftliche Betriebe zu ermöglichen.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Für wen ist ResI geeignet? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              ResI ist für alle landwirtschaftlichen Betriebe geeignet – von kleinen Familienbetrieben 
+              bis zu großen Agrarbetrieben. Die Plattform skaliert mit Ihren Bedürfnissen und bietet 
+              verschiedene Tarife für unterschiedliche Betriebsgrößen.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Wie melde ich mich an? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Sie können sich über die <a href="index.html#login">Startseite</a> mit Ihrer E-Mail-Adresse 
+              und Ihrem Passwort anmelden. Für Neukunden bieten wir eine kostenlose Demo-Version an. 
+              Kontaktieren Sie uns für einen Testzugang.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Kann ich ResI mobil nutzen? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Ja, die Plattform ist vollständig responsive und für Smartphones und Tablets optimiert. 
+              Sie können von jedem Gerät mit Internetverbindung auf Ihre Daten zugreifen und Analysen 
+              durchführen. Eine native Mobile App ist in Planung.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Welche Tarife gibt es? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Wir bieten drei Haupttarife an:
+              <ul>
+                <li><strong>Basic (29€/Monat):</strong> Für kleine Betriebe, 50 GB Speicher, grundlegende Analysen</li>
+                <li><strong>Premium (49€/Monat):</strong> Unbegrenzter Speicher, erweiterte Analysen, API-Zugriff</li>
+                <li><strong>Enterprise (Individuell):</strong> Maßgeschneiderte Lösungen für große Betriebe</li>
+              </ul>
+              Alle Tarife beinhalten eine 30-tägige Geld-zurück-Garantie.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Datenmanagement -->
+      <div class="chart faq-category" data-category="datenmanagement">
+        <h2>Datenmanagement</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Welche Dateiformate werden unterstützt? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              ResI unterstützt folgende Formate:
+              <ul>
+                <li><strong>CSV:</strong> Komma-getrennte Werte</li>
+                <li><strong>XLSX:</strong> Microsoft Excel</li>
+                <li><strong>JSON:</strong> JavaScript Object Notation</li>
+                <li><strong>GeoJSON:</strong> Geografische Daten</li>
+              </ul>
+              Weitere Formate können auf Anfrage hinzugefügt werden.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Wie viele Dateien kann ich hochladen? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Die Anzahl der Dateien ist unbegrenzt. Die maximale Dateigröße beträgt 500 MB pro Datei. 
+              Ihr verfügbarer Speicherplatz hängt von Ihrem gewählten Tarif ab (Basic: 50 GB, Premium: unbegrenzt).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Kann ich meine Daten exportieren? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Ja, Sie können Ihre Daten jederzeit exportieren. Unterstützte Export-Formate sind CSV, 
+              Excel (XLSX), PDF und JSON. Der Export erfolgt über den Bereich 
+              <a href="daten_export.html">Daten-Export</a>.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Was passiert bei einem Upload-Fehler? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Bei Upload-Fehlern erhalten Sie eine detaillierte Fehlermeldung. Häufige Ursachen sind:
+              <ul>
+                <li>Ungültiges Dateiformat</li>
+                <li>Datei zu groß (max. 500 MB)</li>
+                <li>Beschädigte Datei</li>
+                <li>Unzureichender Speicherplatz</li>
+              </ul>
+              Überprüfen Sie die Fehlermeldung und versuchen Sie es erneut. Bei anhaltenden Problemen 
+              kontaktieren Sie unseren <a href="kontakt.html">Support</a>.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Werden meine Daten automatisch gesichert? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Ja, automatische Backups erfolgen täglich. Sie können die Backup-Häufigkeit in den 
+              <a href="benutzer_einstellungen.html">Einstellungen</a> anpassen. Backups werden 30 Tage 
+              lang aufbewahrt und können jederzeit wiederhergestellt werden.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analysen & Wetterdaten -->
+      <div class="chart faq-category" data-category="analysen">
+        <h2>Analysen & Wetterdaten</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Welche Analysen sind verfügbar? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              ResI bietet folgende Analysen:
+              <ul>
+                <li><strong>Risikoanalyse:</strong> Bewertung von Wetter-, Boden- und Marktrisiken</li>
+                <li><strong>Ertragsprognosen:</strong> KI-basierte Vorhersagen</li>
+                <li><strong>Bodenanalyse:</strong> pH-Werte, Nährstoffe, Feuchtigkeit</li>
+                <li><strong>Wetteranalyse:</strong> Temperatur, Niederschlag, Extremwetter</li>
+                <li><strong>Marktanalyse:</strong> Preisentwicklungen und Trends</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Woher stammen die Wetterdaten? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Wir nutzen Daten von führenden Wetterdiensten und Satelliten, darunter:
+              <ul>
+                <li>Meteorologische Dienste (DWD, NOAA)</li>
+                <li>Satellitendaten (Sentinel, Landsat)</li>
+                <li>Lokale Wetterstationen</li>
+                <li>Ihre eigenen Sensoren (falls vorhanden)</li>
+              </ul>
+              Die Daten werden stündlich aktualisiert.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Kann ich eigene Daten für Analysen nutzen? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Ja, hochgeladene Daten werden automatisch in die Analysen integriert. Sie können eigene 
+              Bodenproben, Sensordaten, Ertragsdaten und mehr hochladen. Die KI lernt kontinuierlich 
+              aus Ihren Daten und verbessert die Genauigkeit der Vorhersagen.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Wie genau sind die Prognosen? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Die Genauigkeit hängt von verschiedenen Faktoren ab:
+              <ul>
+                <li>Qualität und Menge der Eingabedaten</li>
+                <li>Prognosezeitraum (kurz- vs. langfristig)</li>
+                <li>Regionale Besonderheiten</li>
+              </ul>
+              Durchschnittlich erreichen unsere Modelle eine Genauigkeit von 85-92% für 7-Tage-Prognosen 
+              und 75-85% für 30-Tage-Prognosen.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Kann ich automatische Berichte erstellen? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Ja, in den <a href="benutzer_einstellungen.html">Einstellungen</a> können Sie automatische 
+              Berichte konfigurieren (täglich, wöchentlich, monatlich). Diese werden per E-Mail versendet 
+              oder im Dashboard bereitgestellt.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account & Sicherheit -->
+      <div class="chart faq-category" data-category="account">
+        <h2>Account & Sicherheit</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Wie sicher sind meine Daten? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Datensicherheit hat höchste Priorität:
+              <ul>
+                <li>SSL/TLS-Verschlüsselung für alle Übertragungen</li>
+                <li>AES-256 Verschlüsselung für gespeicherte Daten</li>
+                <li>Regelmäßige Sicherheitsaudits</li>
+                <li>DSGVO-konforme Datenverarbeitung</li>
+                <li>Zwei-Faktor-Authentifizierung</li>
+                <li>Tägliche Backups mit 30-Tage Aufbewahrung</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Was ist Zwei-Faktor-Authentifizierung? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Die Zwei-Faktor-Authentifizierung (2FA) fügt eine zusätzliche Sicherheitsebene hinzu. 
+              Neben Ihrem Passwort benötigen Sie einen zweiten Faktor (z.B. Code per SMS oder App). 
+              Sie können 2FA in den <a href="benutzer_einstellungen.html">Sicherheitseinstellungen</a> 
+              aktivieren.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Wie ändere ich mein Passwort? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Gehen Sie zu <a href="benutzer_einstellungen.html">Einstellungen → Sicherheit</a> 
+              und klicken Sie auf "Passwort ändern". Geben Sie Ihr aktuelles Passwort ein und 
+              wählen Sie ein neues. Wir empfehlen:
+              <ul>
+                <li>Mindestens 12 Zeichen</li>
+                <li>Groß- und Kleinbuchstaben</li>
+                <li>Zahlen und Sonderzeichen</li>
+                <li>Keine Wörter aus dem Wörterbuch</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Kann ich meinen Account löschen? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Ja, Sie können Ihren Account jederzeit löschen. Gehen Sie zu 
+              <a href="benutzer.html">Profil → Account-Verwaltung</a>. 
+              <strong>Wichtig:</strong> Diese Aktion ist unwiderruflich und löscht alle Ihre Daten 
+              permanent. Wir empfehlen, vorher einen Export Ihrer Daten durchzuführen.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support -->
+      <div class="chart faq-category" data-category="support">
+        <h2>Support</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Wie erreiche ich den Support? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Unser Support-Team ist über mehrere Kanäle erreichbar:
+              <ul>
+                <li><strong>E-Mail:</strong> support@resi-platform.de (24h Antwortzeit)</li>
+                <li><strong>Telefon:</strong> +49 (0) 123 456 789 (Mo–Fr, 9–17 Uhr)</li>
+                <li><strong>Live-Chat:</strong> Über die <a href="kontakt.html">Kontaktseite</a> (Mo–Fr, 9–17 Uhr)</li>
+                <li><strong>Kontaktformular:</strong> <a href="kontakt.html">Hier verfügbar</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Wann ist der Support verfügbar? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Unser Support ist verfügbar:
+              <ul>
+                <li><strong>Telefon & Chat:</strong> Mo–Fr, 9:00–17:00 Uhr</li>
+                <li><strong>E-Mail:</strong> 24/7 (Antwort innerhalb von 24 Stunden)</li>
+                <li><strong>Notfall-Hotline:</strong> 24/7 für Premium-Kunden</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Wie schnell erhalte ich eine Antwort? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Die Antwortzeit hängt vom Kanal ab:
+              <ul>
+                <li><strong>Live-Chat:</strong> Sofort während der Geschäftszeiten</li>
+                <li><strong>E-Mail:</strong> Innerhalb von 24 Stunden</li>
+                <li><strong>Telefon:</strong> Sofort während der Geschäftszeiten</li>
+              </ul>
+              Premium-Kunden erhalten priorisierten Support mit kürzeren Antwortzeiten.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question" onclick="toggleFaq(this)">
+              Gibt es Schulungen oder Webinare? <span class="faq-toggle">+</span>
+            </h3>
+            <div class="faq-answer">
+              Ja, wir bieten regelmäßig kostenlose Webinare und Schulungen an:
+              <ul>
+                <li>Einführungs-Webinare für neue Nutzer</li>
+                <li>Fortgeschrittenen-Workshops</li>
+                <li>Individuelle Schulungen für Teams (kostenpflichtig)</li>
+              </ul>
+              Aktuelle Termine finden Sie in Ihrem Dashboard oder Newsletter.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nicht gefunden? -->
+      <div class="chart">
+        <div class="faq-cta">
+          <h2>Ihre Frage nicht gefunden?</h2>
+          <p>Kein Problem! Unser Support-Team hilft Ihnen gerne weiter.</p>
+          <div class="button-group">
+            <a href="kontakt.html" class="btn btn-primary">📞 Support kontaktieren</a>
+            <a href="info.html" class="btn btn-secondary">📚 Dokumentation durchsuchen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      const trigger = document.querySelector('.mobile-menu');
+      const isOpen = nav.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function toggleFaq(element) {
+      const faqItem = element.parentElement;
+      const answer = faqItem.querySelector('.faq-answer');
+      const toggle = element.querySelector('.faq-toggle');
+      
+      faqItem.classList.toggle('active');
+      
+      if (faqItem.classList.contains('active')) {
+        answer.style.display = 'block';
+        toggle.textContent = '−';
+      } else {
+        answer.style.display = 'none';
+        toggle.textContent = '+';
+      }
+    }
+
+    function searchFAQ() {
+      const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function filterCategory(category) {
+      const categories = document.querySelectorAll('.faq-category');
+      const buttons = document.querySelectorAll('.filter-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      if (category === 'all') {
+        categories.forEach(cat => cat.style.display = 'block');
+      } else {
+        categories.forEach(cat => {
+          if (cat.dataset.category === category) {
+            cat.style.display = 'block';
+          } else {
+            cat.style.display = 'none';
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

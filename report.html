@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reports - Zusammenfassungen und Analyseberichte">
+  <title>Reports – ResI</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+  <header class="page-header">
+    <div class="logo">ResI</div>
+    <nav id="nav" aria-label="Hauptnavigation">
+      <ul class="nav-left">
+        <li><a href="dashboard.html">🏠 Home</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="daten.html">📤 Datenmanagement</a></li>
+        <li><a href="risikoanalyse.html">📊 Analysen</a></li>
+        <li><a href="benutzer.html">👤 Benutzerbereich</a></li>
+        <li><a href="info.html">ℹ️ Info & Support</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-menu" aria-controls="nav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <nav class="sub-nav" aria-label="Untermenü Reports">
+    <ul>
+      <li><a href="risikoanalyse.html">⚠️ Risikoanalyse</a></li>
+      <li><a href="report.html" aria-current="page">📑 Reports</a></li>
+      <li><a href="weather.html">🌍 Wetterdaten</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-content">
+    <section class="content-box">
+      <div class="page-title-section">
+        <h1>Analyse-Reports</h1>
+        <p class="lead">Zusammenfassende Berichte und detaillierte Analysen Ihrer agrarrelevanten Daten</p>
+        <div class="page-actions">
+          <button class="btn btn-primary" onclick="generateNewReport()">📑 Neuen Report erstellen</button>
+          <button class="btn btn-secondary" onclick="window.print()">🖨️ Seite drucken</button>
+        </div>
+      </div>
+
+      <!-- Aktueller Gesamtstatus -->
+      <div class="report-summary">
+        <div class="summary-header">
+          <h2>Aktueller Gesamtstatus</h2>
+          <span class="report-date">Stand: 11. Dezember 2025, 14:30 Uhr</span>
+        </div>
+        <div class="score risk-high">
+          <div class="score-label">Gesamtrisiko</div>
+          <div class="score-value">Hoch</div>
+          <div class="score-indicator">
+            <div class="indicator-bar">
+              <div class="indicator-fill" style="width: 75%; background: linear-gradient(90deg, #ff9800, #f44336);"></div>
+            </div>
+            <span class="indicator-value">75/100</span>
+          </div>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-stat success">
+            <div class="stat-icon">✅</div>
+            <div class="stat-content">
+              <div class="stat-value">5</div>
+              <div class="stat-label">Bereiche normal</div>
+            </div>
+          </div>
+          <div class="summary-stat warning">
+            <div class="stat-icon">⚠️</div>
+            <div class="stat-content">
+              <div class="stat-value">3</div>
+              <div class="stat-label">Bereiche überwachen</div>
+            </div>
+          </div>
+          <div class="summary-stat error">
+            <div class="stat-icon">🔴</div>
+            <div class="stat-content">
+              <div class="stat-value">1</div>
+              <div class="stat-label">Kritischer Bereich</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visualisierung -->
+      <div class="chart">
+        <h2>Risiko-Übersicht</h2>
+        <canvas id="reportChart"></canvas>
+      </div>
+
+      <!-- Detaillierte Reports -->
+      <div class="report-list">
+        <h2>Detailberichte nach Kategorie</h2>
+
+        <!-- High Priority Report -->
+        <article class="report high">
+          <div class="report-header">
+            <div class="report-icon">🔴</div>
+            <div class="report-title-section">
+              <h3>Kritische Bodenwerte in Feld A</h3>
+              <div class="report-meta">
+                <span class="report-category">Kategorie: Boden</span>
+                <span class="report-time">Erkannt: vor 2 Stunden</span>
+              </div>
+            </div>
+            <div class="report-priority">
+              <span class="priority-badge high">Hohe Priorität</span>
+            </div>
+          </div>
+          <div class="report-content">
+            <p class="report-description">
+              Die pH-Werte im Feld A haben den kritischen Schwellenwert von 7.5 überschritten und liegen 
+              aktuell bei 8.2. Dies kann zu Nährstoffverfügbarkeitsproblemen führen und das Pflanzenwachstum 
+              erheblich beeinträchtigen.
+            </p>
+            <div class="report-data">
+              <div class="data-item">
+                <span class="data-label">Aktueller pH-Wert:</span>
+                <span class="data-value critical">8.2</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Schwellenwert:</span>
+                <span class="data-value">7.5</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Abweichung:</span>
+                <span class="data-value">+9.3%</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Betroffene Fläche:</span>
+                <span class="data-value">2.3 ha</span>
+              </div>
+            </div>
+            <div class="report-recommendations">
+              <h4>Empfohlene Maßnahmen:</h4>
+              <ol>
+                <li>Sofortige Bodenprobenanalyse durchführen</li>
+                <li>pH-Wert durch Schwefel-Düngung senken</li>
+                <li>Bewässerung anpassen zur Auswaschung</li>
+                <li>Folgemessung in 7 Tagen einplanen</li>
+              </ol>
+            </div>
+          </div>
+          <div class="report-actions">
+            <button class="btn btn-primary btn-sm">🔍 Details anzeigen</button>
+            <button class="btn btn-secondary btn-sm">📥 Als PDF exportieren</button>
+            <button class="btn btn-secondary btn-sm">✓ Maßnahmen einleiten</button>
+          </div>
+        </article>
+
+        <!-- Medium Priority Report -->
+        <article class="report medium">
+          <div class="report-header">
+            <div class="report-icon">⚠️</div>
+            <div class="report-title-section">
+              <h3>Wetterdaten teilweise unvollständig</h3>
+              <div class="report-meta">
+                <span class="report-category">Kategorie: Wetter</span>
+                <span class="report-time">Erkannt: vor 5 Stunden</span>
+              </div>
+            </div>
+            <div class="report-priority">
+              <span class="priority-badge medium">Mittlere Priorität</span>
+            </div>
+          </div>
+          <div class="report-content">
+            <p class="report-description">
+              Drei Wetterstationen im Süd-Sektor melden seit heute Morgen sporadische Ausfälle. 
+              Die Datenqualität für Niederschlagsmessungen ist dadurch eingeschränkt, was die 
+              Genauigkeit der Bewässerungsempfehlungen beeinträchtigen könnte.
+            </p>
+            <div class="report-data">
+              <div class="data-item">
+                <span class="data-label">Betroffene Stationen:</span>
+                <span class="data-value">3 von 12</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Datenverfügbarkeit:</span>
+                <span class="data-value warning">68%</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Ausfallbeginn:</span>
+                <span class="data-value">11.12.2025, 09:15</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Erwartete Behebung:</span>
+                <span class="data-value">Innerhalb 24h</span>
+              </div>
+            </div>
+            <div class="report-recommendations">
+              <h4>Empfohlene Maßnahmen:</h4>
+              <ol>
+                <li>Alternative Wetterquellen für Süd-Sektor nutzen</li>
+                <li>Manuelle Niederschlagsmessung als Backup</li>
+                <li>Techniker-Einsatz für Wartung anfordern</li>
+              </ol>
+            </div>
+          </div>
+          <div class="report-actions">
+            <button class="btn btn-primary btn-sm">🔍 Details anzeigen</button>
+            <button class="btn btn-secondary btn-sm">📥 Als PDF exportieren</button>
+            <button class="btn btn-secondary btn-sm">🔧 Wartung beauftragen</button>
+          </div>
+        </article>
+
+        <!-- Low Priority Report -->
+        <article class="report low">
+          <div class="report-header">
+            <div class="report-icon">✅</div>
+            <div class="report-title-section">
+              <h3>Sensor Nord – Alle Systeme stabil</h3>
+              <div class="report-meta">
+                <span class="report-category">Kategorie: Sensoren</span>
+                <span class="report-time">Letzte Prüfung: vor 1 Stunde</span>
+              </div>
+            </div>
+            <div class="report-priority">
+              <span class="priority-badge low">Niedrige Priorität</span>
+            </div>
+          </div>
+          <div class="report-content">
+            <p class="report-description">
+              Alle Sensoren im Nord-Sektor arbeiten im Normalbetrieb. Die Messungen zeigen 
+              stabile Werte ohne Auffälligkeiten. Die Datenübertragung erfolgt zuverlässig 
+              und alle automatischen Tests wurden erfolgreich bestanden.
+            </p>
+            <div class="report-data">
+              <div class="data-item">
+                <span class="data-label">Aktive Sensoren:</span>
+                <span class="data-value success">8 von 8</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Datenverfügbarkeit:</span>
+                <span class="data-value success">99.8%</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Batteriestand:</span>
+                <span class="data-value success">85-92%</span>
+              </div>
+              <div class="data-item">
+                <span class="data-label">Nächste Wartung:</span>
+                <span class="data-value">in 45 Tagen</span>
+              </div>
+            </div>
+          </div>
+          <div class="report-actions">
+            <button class="btn btn-primary btn-sm">🔍 Details anzeigen</button>
+            <button class="btn btn-secondary btn-sm">📥 Als PDF exportieren</button>
+          </div>
+        </article>
+
+        <!-- Additional Info Report -->
+        <article class="report info">
+          <div class="report-header">
+            <div class="report-icon">ℹ️</div>
+            <div class="report-title-section">
+              <h3>Monatliche Zusammenfassung verfügbar</h3>
+              <div class="report-meta">
+                <span class="report-category">Kategorie: Allgemein</span>
+                <span class="report-time">Erstellt: heute</span>
+              </div>
+            </div>
+          </div>
+          <div class="report-content">
+            <p class="report-description">
+              Der monatliche Gesamtbericht für November 2025 steht zum Download bereit. 
+              Er enthält umfassende Analysen aller Risikofaktoren, Trends und Entwicklungen.
+            </p>
+          </div>
+          <div class="report-actions">
+            <button class="btn btn-primary btn-sm">📥 Bericht herunterladen</button>
+            <button class="btn btn-secondary btn-sm">📧 Per E-Mail senden</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Report-Archiv -->
+      <div class="chart">
+        <h2>Report-Archiv</h2>
+        <div class="archive-filters">
+          <input type="text" placeholder="🔍 Reports durchsuchen..." class="search-input">
+          <select class="filter-select">
+            <option>Alle Kategorien</option>
+            <option>Boden</option>
+            <option>Wetter</option>
+            <option>Markt</option>
+            <option>Sensoren</option>
+          </select>
+          <select class="filter-select">
+            <option>Letzter Monat</option>
+            <option>Letzte 3 Monate</option>
+            <option>Letztes Jahr</option>
+            <option>Alle</option>
+          </select>
+        </div>
+        <table class="archive-table">
+          <thead>
+            <tr>
+              <th>Datum</th>
+              <th>Titel</th>
+              <th>Kategorie</th>
+              <th>Priorität</th>
+              <th>Status</th>
+              <th>Aktion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10.12.2025</td>
+              <td>Ernteprognose Q1 2026</td>
+              <td><span class="badge">Ertrag</span></td>
+              <td><span class="priority-badge medium">Mittel</span></td>
+              <td><span class="status-badge success">✓ Abgeschlossen</span></td>
+              <td><button class="btn-icon">📥</button></td>
+            </tr>
+            <tr>
+              <td>08.12.2025</td>
+              <td>Wasserverbrauch Analyse</td>
+              <td><span class="badge">Wasser</span></td>
+              <td><span class="priority-badge low">Niedrig</span></td>
+              <td><span class="status-badge success">✓ Abgeschlossen</span></td>
+              <td><button class="btn-icon">📥</button></td>
+            </tr>
+            <tr>
+              <td>05.12.2025</td>
+              <td>Monatsbericht November</td>
+              <td><span class="badge">Allgemein</span></td>
+              <td><span class="priority-badge low">Niedrig</span></td>
+              <td><span class="status-badge success">✓ Abgeschlossen</span></td>
+              <td><button class="btn-icon">📥</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      const trigger = document.querySelector('.mobile-menu');
+      const isOpen = nav.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function generateNewReport() {
+      alert('Report-Generator wird geöffnet (Simulation)');
+    }
+
+    // Chart erstellen
+    window.addEventListener('load', () => {
+      const ctx = document.getElementById('reportChart');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Normal', 'Überwachen', 'Kritisch'],
+          datasets: [{
+            data: [5, 3, 1],
+            backgroundColor: ['#4caf50', '#ff9800', '#f44336'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

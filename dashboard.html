@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ResI Dashboard - Zentrale Übersicht für Ihre Risikoanalysen">
+  <title>Dashboard – ResI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+  <!-- Header -->
+  <header class="page-header">
+    <div class="logo">ResI</div>
+    <nav id="nav" aria-label="Hauptnavigation">
+      <ul class="nav-left">
+        <li><a href="dashboard.html" aria-current="page">🏠 Home</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="daten.html">📤 Datenmanagement</a></li>
+        <li><a href="risikoanalyse.html">📊 Analysen</a></li>
+        <li><a href="benutzer.html">👤 Benutzerbereich</a></li>
+        <li><a href="info.html">ℹ️ Info & Support</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-menu" aria-controls="nav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" class="page-content">
+    <section class="content-box dashboard-content">
+      <div class="dashboard-welcome">
+        <h1>Willkommen im ResI Dashboard</h1>
+        <p class="dashboard-subtitle">Zentrale Übersicht für alle Ihre agrarrelevanten Daten und Analysen</p>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-info">
+            <div class="stat-value">47</div>
+            <div class="stat-label">Aktive Analysen</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📁</div>
+          <div class="stat-info">
+            <div class="stat-value">12</div>
+            <div class="stat-label">Hochgeladene Dateien</div>
+          </div>
+        </div>
+        <div class="stat-card warning">
+          <div class="stat-icon">⚠️</div>
+          <div class="stat-info">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Aktive Warnungen</div>
+          </div>
+        </div>
+        <div class="stat-card success">
+          <div class="stat-icon">✅</div>
+          <div class="stat-info">
+            <div class="stat-value">98%</div>
+            <div class="stat-label">System-Uptime</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activities -->
+      <div class="dashboard-section">
+        <h2>Letzte Aktivitäten</h2>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div class="activity-icon">📤</div>
+            <div class="activity-content">
+              <div class="activity-title">Datei hochgeladen</div>
+              <div class="activity-meta">bodenproben_feldA.csv • vor 2 Stunden</div>
+            </div>
+            <div class="activity-status success">✓</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">📊</div>
+            <div class="activity-content">
+              <div class="activity-title">Risikoanalyse abgeschlossen</div>
+              <div class="activity-meta">Wetter-Risiko Dezember • vor 5 Stunden</div>
+            </div>
+            <div class="activity-status success">✓</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">⚠️</div>
+            <div class="activity-content">
+              <div class="activity-title">Neue Warnung</div>
+              <div class="activity-meta">Bodenwerte Feld A kritisch • vor 1 Tag</div>
+            </div>
+            <div class="activity-status warning">!</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">📁</div>
+            <div class="activity-content">
+              <div class="activity-title">Datenexport erstellt</div>
+              <div class="activity-meta">Q4_2025_Report.pdf • vor 2 Tagen</div>
+            </div>
+            <div class="activity-status success">✓</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Navigation Tiles -->
+      <div class="dashboard-section">
+        <h2>Hauptbereiche</h2>
+        <div class="tile-grid">
+          <a href="daten.html" class="tile">
+            <div class="tile-icon">📤</div>
+            <div class="tile-title">Datenmanagement</div>
+            <div class="tile-description">Dateien hochladen, verwalten und exportieren</div>
+          </a>
+          <a href="risikoanalyse.html" class="tile">
+            <div class="tile-icon">📊</div>
+            <div class="tile-title">Analysen</div>
+            <div class="tile-description">Risikoanalysen, Reports und Wetterdaten</div>
+          </a>
+          <a href="benutzer.html" class="tile">
+            <div class="tile-icon">👤</div>
+            <div class="tile-title">Benutzerbereich</div>
+            <div class="tile-description">Profil, Einstellungen und persönliche Daten</div>
+          </a>
+          <a href="info.html" class="tile">
+            <div class="tile-icon">ℹ️</div>
+            <div class="tile-title">Info & Support</div>
+            <div class="tile-description">Hilfe, FAQ und Kontaktmöglichkeiten</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="dashboard-section">
+        <h2>Schnellaktionen</h2>
+        <div class="quick-actions">
+          <button class="btn btn-primary" onclick="window.location.href='daten.html'">
+            📤 Neue Datei hochladen
+          </button>
+          <button class="btn btn-secondary" onclick="window.location.href='risikoanalyse.html'">
+            📊 Analyse starten
+          </button>
+          <button class="btn btn-secondary" onclick="window.location.href='report.html'">
+            📑 Report erstellen
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      const trigger = document.querySelector('.mobile-menu');
+      const isOpen = nav.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+  </script>
+</body>
+</html>

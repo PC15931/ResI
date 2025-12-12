@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daten-Export - Exportieren Sie Ihre Daten in verschiedenen Formaten">
+  <title>Daten-Export – ResI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+  <!-- Navigation -->
+  <header class="page-header">
+    <div class="logo">ResI</div>
+    <nav id="nav" aria-label="Hauptnavigation">
+      <ul class="nav-left">
+        <li><a href="dashboard.html">🏠 Home</a></li>
+      </ul>
+      <ul class="nav-right">
+        <li><a href="daten.html">📤 Datenmanagement</a></li>
+        <li><a href="risikoanalyse.html">📊 Analysen</a></li>
+        <li><a href="benutzer.html">👤 Benutzerbereich</a></li>
+        <li><a href="info.html">ℹ️ Info & Support</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-menu" aria-controls="nav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Sub-Navigation -->
+  <nav class="sub-nav" aria-label="Untermenü Daten">
+    <ul>
+      <li><a href="daten.html">📤 Upload</a></li>
+      <li><a href="daten_liste.html">📑 Dateiliste</a></li>
+      <li><a href="daten_export.html" aria-current="page">⬇️ Export</a></li>
+    </ul>
+  </nav>
+
+  <!-- Inhalt -->
+  <main id="main" class="page-content">
+    <section class="content-box">
+      <h1>Daten-Export</h1>
+      <p class="lead">Exportieren Sie Ihre Daten in verschiedenen Formaten für weitere Analysen oder Archivierung.</p>
+
+      <!-- Export Format Auswahl -->
+      <div class="chart">
+        <h2>1. Exportformat wählen</h2>
+        <p>Wählen Sie das gewünschte Format für Ihren Datenexport:</p>
+        
+        <div class="format-grid">
+          <label class="format-card">
+            <input type="radio" name="exportFormat" value="csv" checked onchange="updateExportPreview()">
+            <div class="format-content">
+              <div class="format-icon">📊</div>
+              <div class="format-title">CSV</div>
+              <div class="format-description">Komma-getrennte Werte, ideal für Excel und Datenbanken</div>
+              <div class="format-features">
+                <span class="feature-tag">✓ Universell</span>
+                <span class="feature-tag">✓ Kompakt</span>
+              </div>
+            </div>
+          </label>
+
+          <label class="format-card">
+            <input type="radio" name="exportFormat" value="xlsx" onchange="updateExportPreview()">
+            <div class="format-content">
+              <div class="format-icon">📗</div>
+              <div class="format-title">Excel (XLSX)</div>
+              <div class="format-description">Microsoft Excel Format mit Formatierung</div>
+              <div class="format-features">
+                <span class="feature-tag">✓ Formatierung</span>
+                <span class="feature-tag">✓ Diagramme</span>
+              </div>
+            </div>
+          </label>
+
+          <label class="format-card">
+            <input type="radio" name="exportFormat" value="pdf" onchange="updateExportPreview()">
+            <div class="format-content">
+              <div class="format-icon">📕</div>
+              <div class="format-title">PDF</div>
+              <div class="format-description">Portables Dokumentenformat, ideal zum Drucken</div>
+              <div class="format-features">
+                <span class="feature-tag">✓ Professionell</span>
+                <span class="feature-tag">✓ Unveränderbar</span>
+              </div>
+            </div>
+          </label>
+
+          <label class="format-card">
+            <input type="radio" name="exportFormat" value="json" onchange="updateExportPreview()">
+            <div class="format-content">
+              <div class="format-icon">🔧</div>
+              <div class="format-title">JSON</div>
+              <div class="format-description">JavaScript Object Notation für Entwickler</div>
+              <div class="format-features">
+                <span class="feature-tag">✓ API-ready</span>
+                <span class="feature-tag">✓ Strukturiert</span>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Datenauswahl -->
+      <div class="chart">
+        <h2>2. Datenkategorien auswählen</h2>
+        <p>Wählen Sie aus, welche Daten exportiert werden sollen:</p>
+        
+        <form id="exportForm">
+          <div class="checkbox-grid">
+            <label class="checkbox-card">
+              <input type="checkbox" name="dataCategory" value="bodenproben" checked onchange="updateExportSize()">
+              <div class="checkbox-content">
+                <span class="checkbox-icon">🌱</span>
+                <div>
+                  <div class="checkbox-title">Bodenproben</div>
+                  <div class="checkbox-meta">15 Dateien • 2.3 MB</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="checkbox-card">
+              <input type="checkbox" name="dataCategory" value="wetterdaten" checked onchange="updateExportSize()">
+              <div class="checkbox-content">
+                <span class="checkbox-icon">🌤️</span>
+                <div>
+                  <div class="checkbox-title">Wetterdaten</div>
+                  <div class="checkbox-meta">8 Dateien • 1.8 MB</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="checkbox-card">
+              <input type="checkbox" name="dataCategory" value="marktpreise" onchange="updateExportSize()">
+              <div class="checkbox-content">
+                <span class="checkbox-icon">💰</span>
+                <div>
+                  <div class="checkbox-title">Marktpreise</div>
+                  <div class="checkbox-meta">5 Dateien • 0.5 MB</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="checkbox-card">
+              <input type="checkbox" name="dataCategory" value="ertragspr" onchange="updateExportSize()">
+              <div class="checkbox-content">
+                <span class="checkbox-icon">📈</span>
+                <div>
+                  <div class="checkbox-title">Ertragsprognosen</div>
+                  <div class="checkbox-meta">3 Dateien • 0.9 MB</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="checkbox-card">
+              <input type="checkbox" name="dataCategory" value="satellit" onchange="updateExportSize()">
+              <div class="checkbox-content">
+                <span class="checkbox-icon">🛰️</span>
+                <div>
+                  <div class="checkbox-title">Satellitenbilder</div>
+                  <div class="checkbox-meta">12 Dateien • 45.2 MB</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="checkbox-card">
+              <input type="checkbox" name="dataCategory" value="sensoren" onchange="updateExportSize()">
+              <div class="checkbox-content">
+                <span class="checkbox-icon">📡</span>
+                <div>
+                  <div class="checkbox-title">Sensordaten</div>
+                  <div class="checkbox-meta">20 Dateien • 3.7 MB</div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <!-- Zeitraum -->
+      <div class="chart">
+        <h2>3. Zeitraum festlegen</h2>
+        <div class="date-range">
+          <div class="form-group">
+            <label for="startDate">Von:</label>
+            <input type="date" id="startDate" value="2025-01-01">
+          </div>
+          <div class="form-group">
+            <label for="endDate">Bis:</label>
+            <input type="date" id="endDate" value="2025-12-11">
+          </div>
+          <div class="quick-dates">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="setDateRange(7)">Letzte 7 Tage</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="setDateRange(30)">Letzte 30 Tage</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="setDateRange(90)">Letzte 90 Tage</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="setDateRange(365)">Letztes Jahr</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Export-Vorschau -->
+      <div class="chart">
+        <h2>4. Export-Vorschau</h2>
+        <div class="export-preview">
+          <div class="preview-item">
+            <span class="preview-label">Format:</span>
+            <span class="preview-value" id="previewFormat">CSV</span>
+          </div>
+          <div class="preview-item">
+            <span class="preview-label">Datenkategorien:</span>
+            <span class="preview-value" id="previewCategories">2 ausgewählt</span>
+          </div>
+          <div class="preview-item">
+            <span class="preview-label">Geschätzte Größe:</span>
+            <span class="preview-value" id="previewSize">~4.1 MB</span>
+          </div>
+          <div class="preview-item">
+            <span class="preview-label">Anzahl Dateien:</span>
+            <span class="preview-value" id="previewFiles">23 Dateien</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Export Button -->
+      <div class="chart">
+        <div class="export-actions">
+          <button type="button" class="btn btn-primary btn-large" onclick="startExport()">
+            ⬇️ Export starten
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="resetExportForm()">
+            🔄 Zurücksetzen
+          </button>
+        </div>
+      </div>
+
+      <!-- Hinweis -->
+      <div class="info-box">
+        <span class="info-icon">ℹ️</span>
+        <div>
+          <strong>Hinweis:</strong> Der Export kann je nach Datenmenge einige Minuten dauern. 
+          Sie erhalten eine Benachrichtigung, sobald der Export abgeschlossen ist. 
+          Die exportierten Daten werden DSGVO-konform verarbeitet.
+        </div>
+      </div>
+
+      <!-- Export-Historie -->
+      <div class="chart">
+        <h2>Letzte Exporte</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Datum</th>
+              <th>Format</th>
+              <th>Kategorien</th>
+              <th>Größe</th>
+              <th>Status</th>
+              <th>Aktion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10.12.2025 14:30</td>
+              <td><span class="badge">PDF</span></td>
+              <td>Bodenproben, Wetterdaten</td>
+              <td>3.2 MB</td>
+              <td><span class="status-badge success">✓ Verfügbar</span></td>
+              <td><button class="btn-icon" title="Herunterladen">⬇️</button></td>
+            </tr>
+            <tr>
+              <td>08.12.2025 09:15</td>
+              <td><span class="badge">XLSX</span></td>
+              <td>Alle Kategorien</td>
+              <td>52.1 MB</td>
+              <td><span class="status-badge success">✓ Verfügbar</span></td>
+              <td><button class="btn-icon" title="Herunterladen">⬇️</button></td>
+            </tr>
+            <tr>
+              <td>05.12.2025 16:45</td>
+              <td><span class="badge">CSV</span></td>
+              <td>Marktpreise</td>
+              <td>0.8 MB</td>
+              <td><span class="status-badge">Abgelaufen</span></td>
+              <td><button class="btn-icon" disabled title="Nicht mehr verfügbar">⬇️</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-note">Exports werden 30 Tage lang gespeichert.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      const trigger = document.querySelector('.mobile-menu');
+      const isOpen = nav.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function updateExportPreview() {
+      const format = document.querySelector('input[name="exportFormat"]:checked').value.toUpperCase();
+      document.getElementById('previewFormat').textContent = format;
+    }
+
+    function updateExportSize() {
+      const checkboxes = document.querySelectorAll('input[name="dataCategory"]:checked');
+      const count = checkboxes.length;
+      document.getElementById('previewCategories').textContent = `${count} ausgewählt`;
+      
+      // Simuliere Größenberechnung
+      let totalSize = 0;
+      const sizes = { bodenproben: 2.3, wetterdaten: 1.8, marktpreise: 0.5, ertragspr: 0.9, satellit: 45.2, sensoren: 3.7 };
+      checkboxes.forEach(cb => {
+        totalSize += sizes[cb.value] || 0;
+      });
+      
+      document.getElementById('previewSize').textContent = `~${totalSize.toFixed(1)} MB`;
+    }
+
+    function setDateRange(days) {
+      const endDate = new Date();
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - days);
+      
+      document.getElementById('startDate').value = startDate.toISOString().split('T')[0];
+      document.getElementById('endDate').value = endDate.toISOString().split('T')[0];
+    }
+
+    function startExport() {
+      const format = document.querySelector('input[name="exportFormat"]:checked').value;
+      const categories = document.querySelectorAll('input[name="dataCategory"]:checked');
+      
+      if (categories.length === 0) {
+        alert('Bitte wählen Sie mindestens eine Datenkategorie aus.');
+        return;
+      }
+
+      if (confirm(`Export als ${format.toUpperCase()} mit ${categories.length} Kategorien starten?`)) {
+        alert('Export wurde gestartet! Sie erhalten eine Benachrichtigung, sobald der Export abgeschlossen ist.');
+      }
+    }
+
+    function resetExportForm() {
+      document.getElementById('exportForm').reset();
+      document.querySelector('input[name="exportFormat"][value="csv"]').checked = true;
+      updateExportPreview();
+      updateExportSize();
+    }
+
+    // Initial update
+    updateExportSize();
+  </script>
+</body>
+</html>

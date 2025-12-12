@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Daten-Upload – ResI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Menü oben -->
+  <header class="page-header">
+    <div class="logo">ResI</div>
+    <nav id="nav">
+      <ul>
+        <li><a href="dashboard.html">🏠 Home</a></li>
+        <li><a href="upload.html">📤 Upload</a></li>
+        <li><a href="seite1.html">📊 Seite 1</a></li>
+        <li><a href="seite2.html">📈 Seite 2</a></li>
+        <li><a href="seite3.html">🌱 Seite 3</a></li>
+        <li><a href="seite4.html">⚙️ Seite 4</a></li>
+        <li><a href="seite5.html">📑 Seite 5</a></li>
+        <li><a href="seite6.html">🔍 Seite 6</a></li>
+        <li><a href="seite7.html">📡 Seite 7</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- Upload Bereich -->
+<main class="upload-page">
+  <section class="upload">
+    <h2>Daten-Upload (Simulation)</h2>
+    <form onsubmit="return simulateUpload(event)">
+      <input type="file" id="fileUpload" required>
+
+      <!-- Hinweistext -->
+      <p class="upload-info">
+        Die hochgeladene Datei wird automatisch von unserem Algorithmus analysiert 
+        um anschließend die relevanten Daten zu extrahieren.
+      </p>
+
+      <button type="submit" class="btn">Upload starten</button>
+    </form>
+    <p id="upload-message"></p>
+  </section>
+</main>
+  <script>
+    function simulateUpload(event) {
+      event.preventDefault();
+      const file = document.getElementById('fileUpload').files[0];
+      if(file) {
+        document.getElementById('upload-message').innerText =
+          "Datei '" + file.name + "' erfolgreich hochgeladen (Simulation).";
+      }
+    }
+
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
